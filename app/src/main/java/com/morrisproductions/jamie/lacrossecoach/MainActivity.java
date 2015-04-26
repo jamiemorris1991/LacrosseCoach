@@ -1,5 +1,9 @@
 package com.morrisproductions.jamie.lacrossecoach;
 
+import android.app.Activity;
+import android.app.Fragment;
+import android.app.FragmentManager;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarActivity;
@@ -37,7 +41,8 @@ public class MainActivity extends ActionBarActivity
             public void onItemClick(AdapterView<?> parent, View view, int position, long id)
             {
                 int editedPosition = position +1;
-                Toast.makeText(MainActivity.this,R.string.warning_message, Toast.LENGTH_SHORT).show();
+                selectDrawerItem(position);
+                //Toast.makeText(MainActivity.this,R.string.warning_message, Toast.LENGTH_SHORT).show();
                 nDrawerLayout.closeDrawer(nDrawerList);
             }
         });
@@ -68,6 +73,35 @@ public class MainActivity extends ActionBarActivity
         super.onPostCreate(savedInstanceState);
         nDrawerToggle.syncState();
     }
+
+
+    private void selectDrawerItem(int position)
+    {
+        Fragment fragment = null;
+        switch(position)
+        {
+            case 0:
+                fragment = new HomeFragment();
+                break;
+            case 1:
+                fragment = new PlaybookFragment();
+                break;
+            case 2:
+                Intent drawIntent = new Intent(this, DrawingActivity.class);
+                startActivity( drawIntent);
+                break;
+            default:
+                Toast.makeText(MainActivity.this,R.string.warning_message, Toast.LENGTH_SHORT).show();
+                break;
+        }
+        if (fragment != null)
+        {
+            FragmentManager fragmentManager = getFragmentManager();
+            fragmentManager.beginTransaction()
+                    .replace(R.id.content_frame, fragment).commit();
+        }
+    }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu)

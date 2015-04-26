@@ -20,6 +20,13 @@
             android:name=".Login"
             android:label="@string/activity_login" >
         </activity>
+        <activity
+            android:name=".DrawingActivity"
+            android:label="New Play">
+            <intent-filter>
+                <action android:name="android.intent.action.DrawingActivity" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>

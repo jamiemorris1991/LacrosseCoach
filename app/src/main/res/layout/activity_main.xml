@@ -23,34 +23,6 @@
             android:id="@+id/content_frame"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
-
-            <RelativeLayout
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent"
-                android:layout_gravity="center">
-
-                <FrameLayout
-                    android:layout_width="fill_parent"
-                    android:layout_height="fill_parent"
-                    android:layout_alignParentTop="true"
-                    android:layout_alignParentRight="true"
-                    android:layout_alignParentEnd="true"
-                    android:layout_marginTop="23dp">
-
-                    <TextView
-                        android:text="@string/hello_world"
-                        android:layout_width="match_parent"
-                        android:layout_height="252dp"
-                        android:id="@+id/textView"
-                        android:layout_alignParentTop="true"
-                        android:layout_centerHorizontal="true"
-                        android:textSize="@dimen/abc_text_size_display_1_material"
-                        android:textAlignment="@integer/abc_max_action_buttons"
-                        android:textColor="@android:color/black"
-                        android:layout_gravity="center"/>
-                </FrameLayout>
-            </RelativeLayout>
-
         </FrameLayout>
         <ListView
             android:id="@+id/list"
